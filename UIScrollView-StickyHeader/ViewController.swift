@@ -128,8 +128,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let threshold = imageView.frame.height - (navigationController?.navigationBar.frame.height ?? 0.0)
-    
+        let threshold = imageView.frame.height - view.safeAreaInsets.top
+        
         if scrollView.contentOffset.y > threshold && !isHeaderPinned {
             pinHeader()
         } else if scrollView.contentOffset.y <= threshold && isHeaderPinned {
